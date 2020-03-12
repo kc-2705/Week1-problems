@@ -1,0 +1,55 @@
+//PROGRAM-3::: given an array.Find maximum value of ai xor aj where 0 <= i,j < n
+
+import java.io.*;
+import java.util.*;
+public class Main
+{
+    public static int max_xor(ArrayList<Integer> array,int array_size)
+    {
+        ArrayList<Integer> xor_array=new ArrayList<>();
+        Collections.sort(array,Collections.reverseOrder());
+        int large_no=array.get(0);
+        for(int index=1;index<array_size;index++)
+        {
+            int xor=large_no ^ array.get(index);
+            xor_array.add(xor);
+        }
+        int max=Collections.max(xor_array);
+        return max;
+    }
+     public static void main(String[] args) 
+     {
+            int array_size,index;
+            ArrayList<Integer> array=new ArrayList<>();
+            Scanner scanner=new Scanner(System.in);
+            array_size=scanner.nextInt();
+            for(index=0;index<array_size;index++)  array.add(scanner.nextInt());
+            int max=max_xor(array,array_size);
+            System.out.println(max);
+      }
+}
+
+test cases:::
+---------------
+1) n=10
+     array=[1 2 9 30 21 10 5 16 19 26]
+     output=31
+2)n=7
+   array=[1 2 3 4 2 3 1]
+   output=7
+3)n=12
+   array=[11 22 33 44 55 66 77 88 99 110 121 132]
+   output=253
+4)n=10
+   array=[1 2 3 4 5 6  7 8 9 0 ]
+   output=15
+5)n=5
+   array=[1 1 1 1 1]
+   output=0
+6)n=10
+    array=[2,3,5,7,11,13,17,19,23,29]
+     output=31
+7)n=20
+   array=[2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 ]
+   output=62
+
