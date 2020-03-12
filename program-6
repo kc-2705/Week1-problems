@@ -1,0 +1,41 @@
+//program 6::
+import java.io.*;
+import java.util.*;
+public class Main
+{
+       public static void main(String[] args) 
+        {
+             int i,key,value=1;
+             Map<Integer,Integer> map=new HashMap<Integer,Integer>();
+             Scanner scanner=new Scanner(System.in);
+             int array_size=scanner.nextInt();
+            for(i=0;i<array_size;i++)
+             {
+                    key=scanner.nextInt();
+	     if(map.containsKey(key
+                	  value=value+1
+                     else value=1;
+	      map.put(key,value);
+	}
+            for (Map.Entry<Integer,Integer> entry : map.entrySet())  
+             {
+                  if(entry.getValue()==1)
+                     {System.out.println(entry.getKey());break;}
+              }
+        }
+}
+
+test cases::
+---------------
+1)  n=4   array=[2,3,2,2]
+      output=3
+2)  n=3   array=[2,2,2]
+      output=     //does not print anything
+3)  n=19   array=[1 2 3 4 5 6 1 2 3  4 5 6 1 2 3 4  5 6 9]
+      output=9
+4)  n=5   array=[2,3,2,2,3]
+      output=    //does not print anything
+5)  n=25   array=[1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 9]                                                                                                        
+      output=9
+6)  n=10   array=[1 2 3 1 2 3 1 2 3 1]
+      output=  //does not print anything 
