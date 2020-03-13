@@ -1,0 +1,67 @@
+//program1:::: given an array and queries[i]=[li,ri]. Compute xor between li and ri.
+//program-1::::
+
+import java.io.*;
+import java.util.*;
+public class Main
+{
+    public static int resultant_array(ArrayList<Integer> array,int array_size,int li,int ri)
+    {
+        int temp=0;//temp is temporary variable to store xor value from index li to ri.
+        while(li<ri)
+        {
+            temp=temp ^ array.get(li) ^ array.get(ri);
+            li++;ri--;
+        }
+        if(li==ri) temp=temp^array.get(li);
+        return(temp);
+    }
+    public static void main(String[] args) 
+      {
+           int index,no_of_queries;
+           ArrayList<Integer> array_list=new ArrayList<>();
+           ArrayList<Integer> output_array=new ArrayList<>();
+           Scanner scanner=new Scanner(System.in);
+           int array_size=scanner.nextInt();
+           for(index=0;index<array_size;index++) array_list.add(scanner.nextInt());
+           no_of_queries=scanner.nextInt();
+           for(index=0;index<no_of_queries;index++)
+            {
+                    int li=scanner.nextInt();
+	     int ri=scanner.nextInt();
+                    int value=resultant_array(array_list,array_size,li,ri);
+                    output_array.add(value);
+            }
+           System.out.println(output_array);
+       }
+}
+
+test cases:
+------------
+1)  n=5
+     array=[1,4,8,2,4]
+     no of queries=2
+     queries=[ [0,3],[2,4]]
+     expected output=[15,14]
+     output=[15,14]
+
+2)  n=10
+     array=[1 2 1 4 1 5 1 6 1 7]
+     no of queries=1
+     queries=[ [3,0]]
+     expected output=[0]
+     output=[0]
+
+3)  n=9
+     array=[1 1 1 1 1 1 1 1 1]
+     no of queries=3
+     queries=[ [0,3],[3 0],[3 3]]
+     expected output=[0,0,1]
+     output=[0,0,1]
+
+4)  n=5
+     array=[2 4 6 8 10]
+     no of queries=3
+     queries=[ [0,2],[1,4],[3 4]]
+     expected output=[0,0,2]
+     output=[0,0,2]
