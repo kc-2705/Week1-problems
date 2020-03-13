@@ -1,5 +1,4 @@
 //program1:::: given an array and queries[i]=[li,ri]. Compute xor between li and ri.
-//program-1::::
 
 import java.io.*;
 import java.util.*;
